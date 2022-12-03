@@ -37,4 +37,38 @@ public class EnemyAI : MonoBehaviour
     {
         
     }
+
+    void CanSeePlayer()
+    {
+
+    }
+
+    void FacePlayer()
+    {
+
+    }
+
+    public void TakeDamage(int dmg)
+    {
+
+    }
+
+    IEnumerator FlashDamage()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        model.material.color = Color.white;
+
+    }
+
+    IEnumerator Shoot()
+    {
+        isShooting = true;
+
+        Instantiate(bullet, shootPos.position, transform.rotation);
+
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }
 }
