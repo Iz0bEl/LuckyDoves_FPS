@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class ButtonFunctions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+   public void ResumeButton()
+   {
+
+   }
+
+    public void RestartButton()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RespawnButton()
     {
-        
+
+    }
+
+    public void QuitButton()
+    {
+
+    }
+
+    public void AddJUmpButton()
+    {
+
     }
 }
