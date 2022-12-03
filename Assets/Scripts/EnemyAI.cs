@@ -29,13 +29,16 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HPOG = HP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerInRange)
+        {
+            CanSeePlayer();
+        }
     }
 
     void CanSeePlayer()
@@ -45,12 +48,34 @@ public class EnemyAI : MonoBehaviour
 
     void FacePlayer()
     {
+        playerDirection.y = 0;
 
+        Quaternion rot = Quaternion.LookRotation(playerDirection);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 
     public void TakeDamage(int dmg)
     {
+        HP -= dmg;
 
+        StartCoroutine(FlashDamage());
     }
 
     IEnumerator FlashDamage()
