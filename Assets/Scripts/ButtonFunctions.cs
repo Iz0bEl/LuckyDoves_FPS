@@ -24,7 +24,7 @@ public class ButtonFunctions : MonoBehaviour
 
     }
 
-    public void AddJUmpButton()
+    public void AddJumpButton()
     {
 
     }
